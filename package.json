@@ -1,0 +1,17 @@
+{
+  "name": "sadhguru-quotes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "demo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "lowdb": "^1.0.0",
+    "request": "^2.88.0"
+  }
+}
