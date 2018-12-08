@@ -7,11 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "ns23",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^6.1.0",
     "lowdb": "^1.0.0",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "sleep": "^5.2.3"
   }
 }
