@@ -8,8 +8,7 @@ mongoose.connect(
   process.env.MONGO_HOST,
   { useNewUrlParser: true }
 );
-// .then(res => console.log("connection successful"));
-const fileName = "26Dec-25jan.json"; //add file name here
+const fileName = ""; //add file name here
 const filePath = path.join(__dirname, "db", fileName);
 const rawQuotes = fs.readFileSync(filePath);
 const quotes = JSON.parse(rawQuotes);
