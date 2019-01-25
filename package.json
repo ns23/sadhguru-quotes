@@ -4,20 +4,16 @@
   "description": "",
   "main": "demo.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lambda-serve": "netlify-lambda serve functions",
-    "lambda-build": "netlify-lambda build functions"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "ns23",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^2.4.2",
     "dotenv": "^6.1.0",
     "lowdb": "^1.0.0",
     "request": "^2.88.0",
     "sleep": "^5.2.3"
-  },
-  "devDependencies": {
-    "netlify-lambda": "^1.1.0"
   }
 }

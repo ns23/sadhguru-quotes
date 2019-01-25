@@ -1,8 +1,11 @@
 /* eslint-disable no-console */
 /* eslint-disable no-undef */
-require("dotenv").config();
+require("dotenv").config({ path: __dirname + "/.env" });
+const chalk = require("chalk").default;
 const fetchTweets = require("./lib/fetchTweet");
-//Twitter OAuth --- Application only, user context not required.
+const { createTemp } = require("./lib/helper");
+const log = console.log;
+
 const search_auth = {
   consumer_key: process.env.CONSUMER_KEY,
   consumer_secret: process.env.CONSUMER_SECRET
@@ -10,13 +13,14 @@ const search_auth = {
 
 //Product details
 const search_config = {
-  url: "api.twitter.com/1.1/tweets/search/fullarchive/",
-  env: "sadhguru"
+  url: "api.twitter.com/1.1/tweets/search/30day/",
+  env: "monthTweets"
 };
 
 let query = {
   query: "from:SadhguruJV #SadhguruQuotes",
-  fromDate: "200909010000"
+  fromDate: "201812260000",
+  toDate: "201901250000"
 };
 
 // request options
@@ -31,8 +35,11 @@ let request_options = {
 };
 
 let all_data = { tweets: [] };
-fetchTweets(request_options, all_data, 1)
-  .then(data => {
-    console.log("All the data is fetched successfully " + data.tweets.length);
-  })
-  .catch(err => console.log(err));
+createTemp()
+  .then(folder => fetchTweets(request_options, all_data, 1, folder))
+  .then(data =>
+    log(
+      chalk.green("All the data is fetched successfully " + data.tweets.length)
+    )
+  )
+  .catch(err => log(chalk.redBright(err)));

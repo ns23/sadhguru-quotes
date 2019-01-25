@@ -4,12 +4,18 @@
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
-    
+
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
+      "name": "Launch Full",
       "program": "${workspaceFolder}/full_archive.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Month",
+      "program": "${workspaceFolder}/month_tweets.js"
     }
   ]
 }
