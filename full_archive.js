@@ -2,6 +2,10 @@
 /* eslint-disable no-undef */
 require("dotenv").config();
 const fetchTweets = require("./lib/fetchTweet");
+const { createTemp } = require("./lib/helper");
+const log = console.log;
+const chalk = require("chalk").default;
+
 //Twitter OAuth --- Application only, user context not required.
 const search_auth = {
   consumer_key: process.env.CONSUMER_KEY,
@@ -16,7 +20,8 @@ const search_config = {
 
 let query = {
   query: "from:SadhguruJV #SadhguruQuotes",
-  fromDate: "200909010000"
+  fromDate: "201501010000",
+  toDate:"201601010000"
 };
 
 // request options
@@ -31,8 +36,11 @@ let request_options = {
 };
 
 let all_data = { tweets: [] };
-fetchTweets(request_options, all_data, 1)
-  .then(data => {
-    console.log("All the data is fetched successfully " + data.tweets.length);
-  })
-  .catch(err => console.log(err));
+createTemp()
+  .then(folder => fetchTweets(request_options, all_data, 1, folder))
+  .then(data =>
+    log(
+      chalk.green("All the data is fetched successfully " + data.tweets.length)
+    )
+  )
+  .catch(err => log(chalk.redBright(err)));

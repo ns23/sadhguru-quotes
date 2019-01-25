@@ -16,6 +16,12 @@
       "request": "launch",
       "name": "Launch Month",
       "program": "${workspaceFolder}/month_tweets.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch db",
+      "program": "${workspaceFolder}/database_updater.js"
     }
   ]
 }
